@@ -1,15 +1,27 @@
-import { useState } from "react";
+import { useGame } from "../../context/GameContext";
+import { rows, columns, isFoodCaptured } from "../../reducer/gameReducer";
 import "./gameBoard.css";
 
-const Cell = () => {
-  return <div className="cell"></div>;
+const Cell = ({ coordinates }) => {
+  const { snake, foodCoordinates, foodName } = useGame();
+  const classNames = ["cell"];
+
+  if (!!snake.find((item) => isFoodCaptured(item, coordinates))) {
+    classNames.push("snake");
+  }
+
+  if (isFoodCaptured(coordinates, foodCoordinates)) {
+    classNames.push(foodName);
+  }
+
+  return <div className={classNames.join(" ")}></div>;
 };
 
-const Row = () => {
+const Row = ({ yCoord }) => {
   return (
     <div className="row">
-      {[...Array(30)].map((_, index) => (
-        <Cell key={index} />
+      {[...Array(columns)].map((_, xCoord) => (
+        <Cell key={xCoord} coordinates={[xCoord, yCoord]} />
       ))}
     </div>
   );
@@ -30,8 +42,8 @@ const GameBoard = () => {
       </section>
 
       <section className="grid">
-        {[...Array(20)].map((_, idx) => (
-          <Row key={idx} />
+        {[...Array(rows)].map((_, idx) => (
+          <Row key={idx} yCoord={idx} />
         ))}
       </section>
     </main>

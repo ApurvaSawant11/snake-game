@@ -1,10 +1,25 @@
 import "./gameControls.css";
 import { GiBeveledStar as Star } from "react-icons/gi";
+import { useGame } from "../../context/GameContext";
 
 const GameControls = () => {
+  const gameMode = {
+    NEW: "START",
+    ON: "PAUSE",
+    PAUSED: "RESUME",
+    ENDED: "START",
+  };
+
+  const { mode, dispatch } = useGame();
+
   return (
     <section className="controls">
-      <button className="control-btn">Start</button>
+      <button
+        className="control-btn"
+        onClick={() => dispatch({ type: gameMode[mode] })}
+      >
+        {gameMode[mode]}
+      </button>
 
       <div>
         <h3 className="flex-row-center ">
