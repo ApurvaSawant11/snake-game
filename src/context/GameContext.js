@@ -1,6 +1,7 @@
 import { createContext, useContext, useEffect, useReducer } from "react";
 import { gameReducer, initialState } from "../reducer/gameReducer";
 import useInterval from "../hooks/useInterval";
+import useFoodTimeout from "../hooks/useFoodTimeout";
 
 const GameContext = createContext();
 
@@ -10,6 +11,15 @@ const GameProvider = ({ children }) => {
   const onKeyPress = ({ code }) => {
     dispatch({ type: "KEYPRESS", payload: code });
   };
+
+  useFoodTimeout(
+    () => {
+      dispatch({ type: "CHANGE_FOOD" });
+    },
+    50000,
+    state.foodName,
+    state.mode === "ON"
+  );
 
   useInterval(
     () => {
