@@ -1,37 +1,52 @@
-import { useState } from "react";
+import { useGame } from "../../context/GameContext";
+import { rows, columns, isFoodCaptured } from "../../reducer/gameReducer";
 import "./gameBoard.css";
 
-const Cell = () => {
-  return <div className="cell"></div>;
+const Cell = ({ coordinates }) => {
+  const { snake, direction, foodCoordinates, foodName } = useGame();
+  const classNames = ["cell"];
+
+  if (snake.find((item) => isFoodCaptured(item, coordinates))) {
+    if (snake[0].join() == coordinates.join()) {
+      classNames.push(`bg-sizing snake-head rotate-${direction.toLowerCase()}`);
+    } else classNames.push("bg-sizing snake");
+  }
+
+  if (isFoodCaptured(coordinates, foodCoordinates)) {
+    classNames.push(`bg-sizing ${foodName}`);
+  }
+
+  return <div className={classNames.join(" ")}></div>;
 };
 
-const Row = () => {
+const Row = ({ yCoord }) => {
   return (
     <div className="row">
-      {[...Array(30)].map((_, index) => (
-        <Cell key={index} />
+      {[...Array(columns)].map((_, xCoord) => (
+        <Cell key={xCoord} coordinates={[xCoord, yCoord]} />
       ))}
     </div>
   );
 };
 
 const GameBoard = () => {
+  const { score, bestScore } = useGame();
   return (
     <main className="flex-column-center mt-1">
       <section className="scores">
         <div>
           Current Score
-          <span className="score">10</span>
+          <span className="score">{score}</span>
         </div>
         <div>
           Best Score
-          <span className="score">10</span>
+          <span className="score">{bestScore}</span>
         </div>
       </section>
 
       <section className="grid">
-        {[...Array(20)].map((_, idx) => (
-          <Row key={idx} />
+        {[...Array(rows)].map((_, idx) => (
+          <Row key={idx} yCoord={idx} />
         ))}
       </section>
     </main>
