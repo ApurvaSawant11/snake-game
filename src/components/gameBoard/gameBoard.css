@@ -45,6 +45,24 @@
     background-size: contain;
 }
 
+.kiwi {
+    background-image: url("../../images/kiwi.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.strawberry {
+    background-image: url("../../images/strawberry.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.passionFruit {
+    background-image: url("../../images/passion-fruit.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
 .snake {
     background-image: url("../../images/paving.png");
     background-repeat: no-repeat;

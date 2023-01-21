@@ -28,16 +28,17 @@ const Row = ({ yCoord }) => {
 };
 
 const GameBoard = () => {
+  const { score, bestScore } = useGame();
   return (
     <main className="flex-column-center mt-1">
       <section className="scores">
         <div>
           Current Score
-          <span className="score">10</span>
+          <span className="score">{score}</span>
         </div>
         <div>
           Best Score
-          <span className="score">10</span>
+          <span className="score">{bestScore}</span>
         </div>
       </section>
 

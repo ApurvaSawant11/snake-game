@@ -13,6 +13,10 @@ export const initialState = {
   direction: "RIGHT",
   foodCoordinates: [],
   foodName: "apple",
+  foodTimestamp: null,
+  snakeSpeed: 600,
+  score: 0,
+  bestScore: localStorage.getItem("Best-Score") ?? 0,
 };
 
 const moveSnakeToNewCell = ([x, y], direction) => {
@@ -55,18 +59,65 @@ const generateSnakeFood = () => {
 };
 
 const generateSnakeFoodName = () => {
-  const snakeFood = ["apple", "grapes", "banana"];
+  const snakeFood = [
+    "apple",
+    "grapes",
+    "banana",
+    "passionFruit",
+    "kiwi",
+    "strawberry",
+  ];
   return snakeFood[Math.floor(Math.random() * snakeFood.length)];
+};
+
+const generateUserScore = (prevTimestamp) => {
+  let difference = Date.now() - prevTimestamp;
+  if (difference <= 5000) {
+    return 20;
+  } else if (difference > 5000 && difference <= 15000) {
+    return 15;
+  } else if (difference > 15000 && difference <= 25000) {
+    return 10;
+  } else if (difference > 25000 && difference <= 30000) {
+    return 5;
+  } else if (difference > 30000 && difference <= 40000) {
+    return 3;
+  } else if (difference > 40000 && difference < 50000) {
+    return 1;
+  } else {
+    return 0;
+  }
+};
+
+const findBestScore = (current, best) => {
+  if (current > best) {
+    localStorage.setItem("Best-Score", current);
+    return current;
+  }
+  return best;
 };
 
 const moveSnake = (state) => {
   const nextHead = moveSnakeToNewCell(state.snake[0], state.direction);
+
   if (isFoodCaptured(nextHead, state.foodCoordinates)) {
+    const {
+      foodTimestamp: prevFoodTimestamp,
+      score: prevScore,
+      bestScore: prevBest,
+    } = state;
+
+    const newScore = prevScore + generateUserScore(prevFoodTimestamp);
+
     return {
       ...state,
       foodCoordinates: generateSnakeFood(),
       foodName: generateSnakeFoodName(),
       snake: [nextHead, ...state.snake],
+      score: newScore,
+      snakeSpeed: state.snakeSpeed - 15,
+      foodTimestamp: Date.now(),
+      bestScore: findBestScore(newScore, prevBest),
     };
   } else if (isSnakeCollidesWithBody(nextHead, state.snake)) {
     return {
@@ -90,6 +141,7 @@ export const gameReducer = (state, action) => {
         ...initialState,
         mode: "ON",
         foodCoordinates: generateSnakeFood(),
+        foodTimestamp: Date.now(),
       };
 
     case "PAUSE":
@@ -128,7 +180,8 @@ export const gameReducer = (state, action) => {
 
       if (
         Object.keys(directionKeys).includes(action.payload) &&
-        reverseDirection[action.payload] !== state.direction
+        reverseDirection[action.payload] !== state.direction &&
+        state.mode === "ON"
       ) {
         return moveSnake({
           ...state,
@@ -143,6 +196,7 @@ export const gameReducer = (state, action) => {
         ...state,
         foodCoordinates: generateSnakeFood(),
         foodName: generateSnakeFoodName(),
+        foodTimestamp: Date.now(),
       };
 
     default:

@@ -15,7 +15,7 @@ const GameProvider = ({ children }) => {
     () => {
       dispatch({ type: "TICK" });
     },
-    500,
+    state.snakeSpeed,
     state.mode === "ON"
   );
 
@@ -32,6 +32,10 @@ const GameProvider = ({ children }) => {
     direction: state.direction,
     foodCoordinates: state.foodCoordinates,
     foodName: state.foodName,
+    foodTimestamp: state.foodTimestamp,
+    snakeSpeed: state.snakeSpeed,
+    score: state.score,
+    bestScore: state.bestScore,
     dispatch: dispatch,
   };
   return <GameContext.Provider value={value}>{children}</GameContext.Provider>;
