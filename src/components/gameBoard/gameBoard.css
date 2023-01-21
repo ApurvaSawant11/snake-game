@@ -27,45 +27,68 @@
     display: flex;
 }
 
-.apple {
-    background-image: url("../../images/apple.png");
+.bg-sizing {
     background-repeat: no-repeat;
     background-size: contain;
+}
+
+.apple {
+    background-image: url("../../images/apple.png");
+    
 }
 
 .grapes {
     background-image: url("../../images/grapes.png");
-    background-repeat: no-repeat;
-    background-size: contain;
 }
 
 .banana {
     background-image: url("../../images/bananas.png");
-    background-repeat: no-repeat;
-    background-size: contain;
 }
 
 .kiwi {
     background-image: url("../../images/kiwi.png");
-    background-repeat: no-repeat;
-    background-size: contain;
 }
 
 .strawberry {
     background-image: url("../../images/strawberry.png");
-    background-repeat: no-repeat;
-    background-size: contain;
 }
 
 .passionFruit {
     background-image: url("../../images/passion-fruit.png");
-    background-repeat: no-repeat;
-    background-size: contain;
 }
 
 .snake {
-    background-image: url("../../images/paving.png");
-    background-repeat: no-repeat;
-    background-size: contain;
+    background-image: url("../../images/snake-skin.png");
     background-color: white;
+}
+
+.snake-head {
+    background-image: url("../../images/cobra.png");
+    border-radius: 0% 0% 55% 55%;
+    background-color: white;
+
+}
+
+.rotate-left {
+    -moz-transform: rotate(90deg);
+    -webkit-transform: rotate(90deg);
+    -o-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    transform: rotate(90deg);
+}
+
+.rotate-up {
+    -moz-transform: rotate(180deg);
+    -webkit-transform: rotate(180deg);
+    -o-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    transform: rotate(180deg);
+}
+
+.rotate-right {
+    -moz-transform: rotate(270deg);
+    -webkit-transform: rotate(270deg);
+    -o-transform: rotate(270deg);
+    -ms-transform: rotate(270deg);
+    transform: rotate(270deg);
 }

@@ -3,15 +3,17 @@ import { rows, columns, isFoodCaptured } from "../../reducer/gameReducer";
 import "./gameBoard.css";
 
 const Cell = ({ coordinates }) => {
-  const { snake, foodCoordinates, foodName } = useGame();
+  const { snake, direction, foodCoordinates, foodName } = useGame();
   const classNames = ["cell"];
 
-  if (!!snake.find((item) => isFoodCaptured(item, coordinates))) {
-    classNames.push("snake");
+  if (snake.find((item) => isFoodCaptured(item, coordinates))) {
+    if (snake[0].join() == coordinates.join()) {
+      classNames.push(`bg-sizing snake-head rotate-${direction.toLowerCase()}`);
+    } else classNames.push("bg-sizing snake");
   }
 
   if (isFoodCaptured(coordinates, foodCoordinates)) {
-    classNames.push(foodName);
+    classNames.push(`bg-sizing ${foodName}`);
   }
 
   return <div className={classNames.join(" ")}></div>;
