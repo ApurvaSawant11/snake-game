@@ -1,0 +1,17 @@
+.controls {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.control-btn {
+    border: none;
+    border-radius: 0.5rem;
+    background: var(--tertiary);
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1rem;
+    padding: 0.5rem 1.5rem;
+    margin-top: 1rem;
+}

@@ -1,0 +1,53 @@
+.scores {
+    display: flex;
+    width: 40%;
+    justify-content: space-between;
+    padding-bottom: 1rem;
+    font-size: 1rem;
+}
+
+.score {
+    font-size: 1.5rem;
+    padding-left: 1rem;
+}
+
+.grid {
+    background-image: url("../../images/board-background.jfif");
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.cell {
+    border: 1px solid var(--green);
+    width: 1.2rem;
+    height: 1.2rem;
+}
+
+.row {
+    display: flex;
+}
+
+.apple {
+    background-image: url("../../images/apple.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.grapes {
+    background-image: url("../../images/grapes.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.banana {
+    background-image: url("../../images/bananas.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.snake {
+    background-image: url("../../images/paving.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-color: white;
+}
