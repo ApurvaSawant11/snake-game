@@ -1,9 +1,12 @@
 import "./App.css";
+import { GameBoard, GameControls, Header } from "./components";
 
 function App() {
   return (
     <div className="App">
-      <h1>Snake Game</h1>
+      <Header />
+      <GameBoard />
+      <GameControls />
     </div>
   );
 }

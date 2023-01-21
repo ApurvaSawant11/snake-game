@@ -1,0 +1,54 @@
+@import url('https://fonts.googleapis.com/css2?family=Salsa&display=swap');
+
+:root {
+    --primary:#32CD60;
+    --secondary: #329FCD;
+    --tertiary: #32CDAE;
+    --light-gray: #b4b1b1;
+    --green: #50ba2c;
+}
+
+.App{
+    font-family: 'Salsa', cursive;
+}
+
+.text-center {
+    text-align: center;
+}
+
+/* flex utils */
+
+.flex-row-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.flex-column-center {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* padding utils */
+
+.p-1 {
+    padding: 1rem;
+}
+
+.px-1 {
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+.py-1 { 
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+/* margin utils */
+
+.mt-1 {
+    margin-top: 1rem;
+}
