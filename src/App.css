@@ -1,15 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Salsa&display=swap');
 
-:root {
-    --primary:#32CD60;
-    --secondary: #329FCD;
-    --tertiary: #32CDAE;
-    --light-gray: #b4b1b1;
-    --green: #50ba2c;
+* {
+    margin: 0;
 }
 
 .App{
     font-family: 'Salsa', cursive;
+    background: var(--theme-bg);
+    min-height: 100vh;
+    color: var(--theme-text-color);
 }
 
 .text-center {
@@ -45,6 +44,10 @@
 .py-1 { 
     padding-top: 1rem;
     padding-bottom: 1rem;
+}
+
+.pt-1 {
+    padding-top: 1rem;
 }
 
 /* margin utils */

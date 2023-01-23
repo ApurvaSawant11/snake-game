@@ -11,22 +11,22 @@
     padding-left: 1rem;
 }
 
-.grid {
-    background-image: url("../../images/board-background.jfif");
-    background-repeat: no-repeat;
-    background-size: contain;
-}
-
 .cell {
-    border: 1px solid var(--green);
-    width: 1.2rem;
-    height: 1.2rem;
+    width: 1.5rem;
+    height: 1.5rem;
 }
 
 .row {
     display: flex;
 }
 
+.row:nth-child(even) > .cell:nth-child(even), .row:nth-child(odd) > .cell:nth-child(odd){
+    background-color: var(--light-green);
+}
+.row:nth-child(even) > .cell:nth-child(odd), .row:nth-child(odd) > .cell:nth-child(even){
+    background-color: var(--dark-green);
+
+}
 .bg-sizing {
     background-repeat: no-repeat;
     background-size: contain;
@@ -59,14 +59,10 @@
 
 .snake {
     background-image: url("../../images/snake-skin.png");
-    background-color: white;
 }
 
 .snake-head {
     background-image: url("../../images/cobra.png");
-    border-radius: 0% 0% 55% 55%;
-    background-color: white;
-
 }
 
 .rotate-left {

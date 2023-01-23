@@ -1,0 +1,64 @@
+.basic-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background: var(--overlay);
+    z-index: 5;
+}
+
+.modal {
+    width: 20rem;
+    background: var(--theme-bg);
+    color: var(--theme-text-color);
+}
+
+.rules-modal {
+    background: var(--theme-bg);
+    padding: 1rem;
+    color: var(--theme-text-color);
+}
+
+.show {
+    display: flex;
+}
+
+.modal-btn {
+    border: none;
+    height: 3rem;
+    width: 3rem;
+    cursor: pointer;
+    margin: 0 1rem;
+}
+
+.play-btn {
+    height: 2.6rem;
+    width: 2.6rem;
+}
+
+.btn {
+    cursor: pointer;
+    border: 0;
+    border-radius: 0.5rem;
+    box-shadow: 2px 19px 31px #00000033;
+    font-weight: bold;
+    font-size: 1rem;
+    padding: 1rem 1.8rem;
+    outline: none;
+    margin: 0 1rem;
+}
+
+
+.blue-btn {
+    background-color: var(--blue-btn);
+    background-image:radial-gradient(93% 87% at 87% 89%, #0000003b 0%, #00000000 86.18%), radial-gradient(66% 87% at 26% 20%, #ffffff69 0%, #ffffff00 69.79%, #ffffff00 100%);
+    color: var(--white);
+}
+
+.orange-btn {
+    background-color: var(--orange-btn);
+    background-image: radial-gradient(93% 87% at 87% 89%, #0000003b 0%, transparent 86.18%), radial-gradient(66% 87% at 26% 20%, #f8b914 0%, #ffffff00 69.79%, #ffffff00 100%);
+    color: var(--white);
+}
