@@ -23,6 +23,14 @@ const GameProvider = ({ children }) => {
 
   useInterval(
     () => {
+      dispatch({ type: "SHOW_FOOD", payload: true });
+    },
+    state.showFood ? null : 3000,
+    state.mode === "ON"
+  );
+
+  useInterval(
+    () => {
       dispatch({ type: "TICK" });
     },
     state.snakeSpeed,
@@ -41,6 +49,7 @@ const GameProvider = ({ children }) => {
     snake: state.snake,
     direction: state.direction,
     foodCoordinates: state.foodCoordinates,
+    showFood: state.showFood,
     foodName: state.foodName,
     foodTimestamp: state.foodTimestamp,
     snakeSpeed: state.snakeSpeed,

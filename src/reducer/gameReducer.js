@@ -13,6 +13,7 @@ export const initialState = {
   ],
   direction: "RIGHT",
   foodCoordinates: [],
+  showFood: true,
   foodName: "apple",
   foodTimestamp: null,
   snakeSpeed: 600,
@@ -52,11 +53,16 @@ const isSnakeCollidesWithBody = (next, snake) => {
   return false;
 };
 
-const generateSnakeFood = () => {
-  return [
+const generateSnakeFood = (snake) => {
+  let newFood = [
     Math.floor(Math.random() * columns),
     Math.floor(Math.random() * rows),
   ];
+  const newFoodCollidesWithSnake = snake.find(
+    (ele) => ele.join() === newFood.join()
+  );
+
+  return newFoodCollidesWithSnake ? generateSnakeFood(snake) : newFood;
 };
 
 const generateSnakeFoodName = () => {
@@ -73,17 +79,17 @@ const generateSnakeFoodName = () => {
 
 const generateUserScore = (prevTimestamp) => {
   let difference = Date.now() - prevTimestamp;
-  if (difference <= 5000) {
+  if (difference <= 8000) {
     return 20;
-  } else if (difference > 5000 && difference <= 15000) {
+  } else if (difference > 8000 && difference <= 18000) {
     return 15;
-  } else if (difference > 15000 && difference <= 25000) {
+  } else if (difference > 18000 && difference <= 28000) {
     return 10;
-  } else if (difference > 25000 && difference <= 30000) {
+  } else if (difference > 28000 && difference <= 33000) {
     return 5;
-  } else if (difference > 30000 && difference <= 40000) {
+  } else if (difference > 33000 && difference <= 43000) {
     return 3;
-  } else if (difference > 40000 && difference < 50000) {
+  } else if (difference > 43000 && difference < 50000) {
     return 1;
   } else {
     return 0;
@@ -109,8 +115,9 @@ const moveSnake = (state) => {
 
     return {
       ...state,
-      foodCoordinates: generateSnakeFood(),
+      foodCoordinates: generateSnakeFood(state.snake),
       foodName: generateSnakeFoodName(),
+      showFood: false,
       snake: [nextHead, ...state.snake],
       score: newScore,
       snakeSpeed: state.snakeSpeed - 15,
@@ -138,7 +145,7 @@ export const gameReducer = (state, action) => {
       return {
         ...initialState,
         mode: "ON",
-        foodCoordinates: generateSnakeFood(),
+        foodCoordinates: generateSnakeFood(state.snake),
         foodTimestamp: Date.now(),
         bestScore: localStorage.getItem("Best-Score"),
       };
@@ -197,9 +204,15 @@ export const gameReducer = (state, action) => {
     case "CHANGE_FOOD":
       return {
         ...state,
-        foodCoordinates: generateSnakeFood(),
+        foodCoordinates: generateSnakeFood(state.snake),
         foodName: generateSnakeFoodName(),
         foodTimestamp: Date.now(),
+      };
+
+    case "SHOW_FOOD":
+      return {
+        ...state,
+        showFood: action.payload,
       };
 
     default:

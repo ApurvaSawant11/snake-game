@@ -3,7 +3,7 @@ import { rows, columns, areCoordsEqual } from "../../reducer/gameReducer";
 import "./gameBoard.css";
 
 const Cell = ({ coordinates }) => {
-  const { snake, direction, foodCoordinates, foodName } = useGame();
+  const { snake, direction, foodCoordinates, showFood, foodName } = useGame();
   const classNames = ["cell"];
 
   if (snake.find((item) => areCoordsEqual(item, coordinates))) {
@@ -13,7 +13,7 @@ const Cell = ({ coordinates }) => {
   }
 
   if (areCoordsEqual(coordinates, foodCoordinates)) {
-    classNames.push(`bg-sizing food ${foodName}`);
+    classNames.push(`bg-sizing food ${showFood ? foodName : ""}`);
   }
 
   return <div className={classNames.join(" ")}></div>;
