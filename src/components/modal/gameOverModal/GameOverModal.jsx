@@ -19,7 +19,12 @@ const GameOverModal = ({ mode }) => {
                 <button className="btn blue-btn" onClick={restartHandler}>
                   Restart
                 </button>
-                <button className="btn orange-btn" onClick={restartHandler}>
+                <button
+                  className="btn orange-btn"
+                  onClick={() => {
+                    dispatch({ type: "RESUME" });
+                  }}
+                >
                   Resume
                 </button>
               </div>
