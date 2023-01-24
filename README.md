@@ -27,11 +27,25 @@
 
 ---
 
+### Design
+
 - Fully Responsive
 - Dark Theme
 - Minimalist Design
 
+### Functionality
+
+- Use arrow keys to control the direction of the snake.
+- Holding arrow keys increases snake speed.
+- New food item is shown after 3 secs of previous collection.
+- Food moves to random position after 50 secs.
+- Speed of the snake increases when you collect food.
+- Score is calculated based on how fast you collect the food.
+- Meta tags preview
+
 ## Snapshots
+
+---
 
 <div align="center" style="padding: 20px">
   
