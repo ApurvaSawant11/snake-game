@@ -32,7 +32,7 @@ const Row = ({ yCoord }) => {
 const GameBoard = () => {
   const { score, bestScore } = useGame();
   return (
-    <main className="flex-column-center mt-1">
+    <main className="mt-1">
       <section className="scores">
         <div>
           Current Score

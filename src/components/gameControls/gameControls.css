@@ -32,9 +32,6 @@
     .mobile-arrows {
         display: flex;
     }
-}
-
-@media screen and (max-width: 680px){
     .controls {
         flex-direction: row-reverse;
         margin: 0;
@@ -44,6 +41,13 @@
 @media screen and (max-width: 390px) {
     .mobile-arrows {
         transform: rotate(90deg); 
+    }
+
+    .controls > button.btn {
+        position: absolute;
+        bottom: 8px;
+        right: 7px;
+        padding: 1rem;
     }
     
 }
