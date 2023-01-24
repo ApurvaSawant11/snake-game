@@ -5,3 +5,31 @@
     justify-content: center;
     margin-top: 1.5rem;
 }
+
+.mobile-arrows {
+    display: none;
+    font-size: 2.8rem;
+}
+
+.mobile-arrow {
+    cursor: pointer;
+}
+
+.arrow-set {
+    display: flex;
+    gap: 2rem;
+}
+
+@media screen and (min-width: 681px) and (max-width: 1180px) {
+    .mobile-arrows {
+        display: flex;
+        flex-direction: row;
+        gap:2rem;
+    }
+}
+
+@media screen and (max-width: 680px){
+    .mobile-arrows {
+        display: flex;
+    }
+}

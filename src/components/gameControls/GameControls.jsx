@@ -1,5 +1,11 @@
 import "./gameControls.css";
 import { useGame } from "../../context/GameContext";
+import {
+  TfiArrowCircleLeft as Left,
+  TfiArrowCircleRight as Right,
+  TfiArrowCircleUp as Up,
+  TfiArrowCircleDown as Down,
+} from "react-icons/tfi";
 
 const GameControls = () => {
   const gameMode = {
@@ -21,6 +27,29 @@ const GameControls = () => {
       >
         {gameMode[mode]}
       </button>
+
+      <div className="flex-column-center pt-1 mobile-arrows">
+        <Up
+          className="mobile-arrow"
+          onClick={() => dispatch({ type: "KEYPRESS", payload: "ArrowUp" })}
+        />
+        <div className="arrow-set">
+          <Left
+            className="mobile-arrow"
+            onClick={() => dispatch({ type: "KEYPRESS", payload: "ArrowLeft" })}
+          />
+          <Right
+            className="mobile-arrow"
+            onClick={() =>
+              dispatch({ type: "KEYPRESS", payload: "ArrowRight" })
+            }
+          />
+        </div>
+        <Down
+          className="mobile-arrow"
+          onClick={() => dispatch({ type: "KEYPRESS", payload: "ArrowDown" })}
+        />
+      </div>
     </section>
   );
 };

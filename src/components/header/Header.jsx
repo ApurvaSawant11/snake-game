@@ -11,7 +11,7 @@ const Header = ({ setShowRulesModal }) => {
       <img
         src={theme === "light" ? logoBlack : logoWhite}
         alt="Snake Game"
-        className="px-1"
+        className="px-1 logo"
       />
       <div className="flex-row-center px-1">
         {theme === "light" ? (
