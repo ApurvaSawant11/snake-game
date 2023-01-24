@@ -39,7 +39,7 @@ const moveSnakeToNewCell = ([x, y], direction) => {
   }
 };
 
-export const isFoodCaptured = ([x, y], [xFood, yFood]) =>
+export const areCoordsEqual = ([x, y], [xFood, yFood]) =>
   x === xFood && y === yFood;
 
 const isSnakeCollidesWithBody = (next, snake) => {
@@ -101,7 +101,7 @@ const findBestScore = (current, best) => {
 const moveSnake = (state) => {
   const nextHead = moveSnakeToNewCell(state.snake[0], state.direction);
 
-  if (isFoodCaptured(nextHead, state.foodCoordinates)) {
+  if (areCoordsEqual(nextHead, state.foodCoordinates)) {
     const {
       foodTimestamp: prevFoodTimestamp,
       score: prevScore,

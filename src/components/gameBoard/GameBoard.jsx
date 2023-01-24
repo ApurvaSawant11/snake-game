@@ -1,19 +1,19 @@
 import { useGame } from "../../context/GameContext";
-import { rows, columns, isFoodCaptured } from "../../reducer/gameReducer";
+import { rows, columns, areCoordsEqual } from "../../reducer/gameReducer";
 import "./gameBoard.css";
 
 const Cell = ({ coordinates }) => {
   const { snake, direction, foodCoordinates, foodName } = useGame();
   const classNames = ["cell"];
 
-  if (snake.find((item) => isFoodCaptured(item, coordinates))) {
-    if (snake[0].join() == coordinates.join()) {
+  if (snake.find((item) => areCoordsEqual(item, coordinates))) {
+    if (snake[0].join() === coordinates.join()) {
       classNames.push(`bg-sizing snake-head rotate-${direction.toLowerCase()}`);
     } else classNames.push("bg-sizing snake");
   }
 
-  if (isFoodCaptured(coordinates, foodCoordinates)) {
-    classNames.push(`bg-sizing ${foodName}`);
+  if (areCoordsEqual(coordinates, foodCoordinates)) {
+    classNames.push(`bg-sizing food ${foodName}`);
   }
 
   return <div className={classNames.join(" ")}></div>;
@@ -32,7 +32,7 @@ const Row = ({ yCoord }) => {
 const GameBoard = () => {
   const { score, bestScore } = useGame();
   return (
-    <main className="flex-column-center mt-1">
+    <main className="mt-1">
       <section className="scores">
         <div>
           Current Score
@@ -44,11 +44,13 @@ const GameBoard = () => {
         </div>
       </section>
 
-      <section className="grid">
-        {[...Array(rows)].map((_, idx) => (
-          <Row key={idx} yCoord={idx} />
-        ))}
-      </section>
+      <div className="grid-container">
+        <section className="grid">
+          {[...Array(rows)].map((_, idx) => (
+            <Row key={idx} yCoord={idx} />
+          ))}
+        </section>
+      </div>
     </main>
   );
 };

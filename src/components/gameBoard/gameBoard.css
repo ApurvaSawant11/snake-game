@@ -4,6 +4,7 @@
     justify-content: space-between;
     padding-bottom: 1rem;
     font-size: 1rem;
+    margin: 0 auto;
 }
 
 .score {
@@ -11,22 +12,24 @@
     padding-left: 1rem;
 }
 
-.grid {
-    background-image: url("../../images/board-background.jfif");
-    background-repeat: no-repeat;
-    background-size: contain;
-}
-
 .cell {
-    border: 1px solid var(--green);
-    width: 1.2rem;
-    height: 1.2rem;
+    width: 1.5rem;
+    height: 1.5rem;
 }
 
 .row {
     display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
+.row:nth-child(even) > .cell:nth-child(even), .row:nth-child(odd) > .cell:nth-child(odd){
+    background-color: var(--light-green);
+}
+.row:nth-child(even) > .cell:nth-child(odd), .row:nth-child(odd) > .cell:nth-child(even){
+    background-color: var(--dark-green);
+
+}
 .bg-sizing {
     background-repeat: no-repeat;
     background-size: contain;
@@ -59,14 +62,10 @@
 
 .snake {
     background-image: url("../../images/snake-skin.png");
-    background-color: white;
 }
 
 .snake-head {
     background-image: url("../../images/cobra.png");
-    border-radius: 0% 0% 55% 55%;
-    background-color: white;
-
 }
 
 .rotate-left {
@@ -91,4 +90,60 @@
     -o-transform: rotate(270deg);
     -ms-transform: rotate(270deg);
     transform: rotate(270deg);
+}
+
+/* mobile responsiveness */
+
+ @media screen and (max-width: 1180px) {
+
+    .cell {
+        width: 1.4rem;
+        height: 1.4rem;
+    }
+}
+
+@media screen and (max-width: 780px) {
+    
+    .grid {
+        width: 100%;
+    }
+
+    .scores {
+        width: 90%;
+    }
+}
+
+@media screen and (max-width: 680px) {
+    .cell {
+        width: 1rem;
+        height: 1rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .cell {
+        width: 0.95rem;
+        height: 0.95rem;
+    }
+
+    .scores {
+        gap: 1rem;
+        font-size: 14px;
+    }
+}
+
+@media screen and (max-width: 390px) {
+    .cell {
+        min-width: 1rem;
+        min-height: 1rem;
+    }
+
+    .grid {
+        transform: rotate(90deg); 
+        margin: 5rem 0;
+    }
+
+    .food {
+        transform: rotate(270deg); 
+    }
 }

@@ -1,9 +1,47 @@
 header{
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
-    background: var(--tertiary);
+    border-bottom: 2px solid black;
+    background: var(--header-bg);
+}
+
+.round-btn {
+    border-radius: 50%;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 0.5rem 1rem;
+    font-size: 2rem;
+}
+
+.question-btn {
+    background-color: #ff8f00;
+    background-image: radial-gradient(93% 87% at 87% 89%, #0000003b 0%, transparent 86.18%), radial-gradient(66% 87% at 26% 20%, #f8b914 0%, #ffffff00 69.79%, #ffffff00 100%);
+    color: white;
+}
+
+.moon-btn {
+    font-size: 2rem;
+    cursor: pointer;
 }
 
 
+@media screen and (max-width: 480px) {
+    
+    header {
+        padding: 0.5rem;
+    }
+    .logo {
+        width: 12rem;
+    }
+
+    .round-btn {
+        font-size: 1rem;
+        padding: 0.5rem 0.8rem;
+    }
+
+    .moon-btn {
+        font-size: 1.5rem;
+    }
+}

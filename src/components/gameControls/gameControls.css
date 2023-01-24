@@ -3,15 +3,51 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    margin-top: 1.5rem;
 }
 
-.control-btn {
-    border: none;
-    border-radius: 0.5rem;
-    background: var(--tertiary);
+.mobile-arrows {
+    display: none;
+    font-size: 2.8rem;
+}
+
+.mobile-arrow {
     cursor: pointer;
-    font-weight: bold;
-    font-size: 1rem;
-    padding: 0.5rem 1.5rem;
-    margin-top: 1rem;
+}
+
+.arrow-set {
+    display: flex;
+    gap: 2rem;
+}
+
+@media screen and (min-width: 681px) and (max-width: 1180px) {
+    .mobile-arrows {
+        display: flex;
+        flex-direction: row;
+        gap:2rem;
+    }
+}
+
+@media screen and (max-width: 680px){
+    .mobile-arrows {
+        display: flex;
+    }
+    .controls {
+        flex-direction: row-reverse;
+        margin: 0;
+    }
+}
+
+@media screen and (max-width: 390px) {
+    .mobile-arrows {
+        transform: rotate(90deg); 
+    }
+
+    .controls > button.btn {
+        position: absolute;
+        bottom: 8px;
+        right: 7px;
+        padding: 1rem;
+    }
+    
 }
