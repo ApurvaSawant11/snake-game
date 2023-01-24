@@ -6,7 +6,7 @@
 }
 
 [data-theme="light"] {
-  --theme-bg:"#ffffff";
+  --theme-bg:#ffffff;
   --theme-text-color:#000000;
   --light-gray: #b4b1b1;
   --header-bg: #e7e7e7;

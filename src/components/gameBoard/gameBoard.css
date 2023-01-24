@@ -11,12 +11,6 @@
     padding-left: 1rem;
 }
 
-.grid {
-    background-image: url("../../images/board-background.jfif");
-    background-repeat: no-repeat;
-    background-size: contain;
-}
-
 .cell {
     width: 1.5rem;
     height: 1.5rem;
@@ -132,14 +126,23 @@
     }
 
     .scores {
-        flex-direction: column-reverse;
-        align-items: center;
+        gap: 1rem;
+        font-size: 14px;
     }
 }
 
 @media screen and (max-width: 390px) {
     .cell {
-        width: 0.7rem;
-        height: 0.7rem;
+        width: 0.9rem;
+        height: 0.9rem;
+    }
+
+    .grid {
+        transform: rotate(90deg); 
+        margin: 5rem 0;
+    }
+
+    .food {
+        transform: rotate(270deg); 
     }
 }

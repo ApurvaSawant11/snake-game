@@ -33,3 +33,17 @@
         display: flex;
     }
 }
+
+@media screen and (max-width: 680px){
+    .controls {
+        flex-direction: row-reverse;
+        margin: 0;
+    }
+}
+
+@media screen and (max-width: 390px) {
+    .mobile-arrows {
+        transform: rotate(90deg); 
+    }
+    
+}

@@ -13,7 +13,7 @@ const Cell = ({ coordinates }) => {
   }
 
   if (areCoordsEqual(coordinates, foodCoordinates)) {
-    classNames.push(`bg-sizing ${foodName}`);
+    classNames.push(`bg-sizing food ${foodName}`);
   }
 
   return <div className={classNames.join(" ")}></div>;
