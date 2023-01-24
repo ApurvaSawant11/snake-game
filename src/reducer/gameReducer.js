@@ -90,7 +90,8 @@ const generateUserScore = (prevTimestamp) => {
   }
 };
 
-const findBestScore = (current, best) => {
+const findBestScore = (current) => {
+  let best = localStorage.getItem("Best-Score");
   if (current > best) {
     localStorage.setItem("Best-Score", current);
     return current;
@@ -102,11 +103,7 @@ const moveSnake = (state) => {
   const nextHead = moveSnakeToNewCell(state.snake[0], state.direction);
 
   if (areCoordsEqual(nextHead, state.foodCoordinates)) {
-    const {
-      foodTimestamp: prevFoodTimestamp,
-      score: prevScore,
-      bestScore: prevBest,
-    } = state;
+    const { foodTimestamp: prevFoodTimestamp, score: prevScore } = state;
 
     const newScore = prevScore + generateUserScore(prevFoodTimestamp);
 
@@ -118,7 +115,7 @@ const moveSnake = (state) => {
       score: newScore,
       snakeSpeed: state.snakeSpeed - 15,
       foodTimestamp: Date.now(),
-      bestScore: findBestScore(newScore, prevBest),
+      bestScore: findBestScore(newScore),
     };
   } else if (isSnakeCollidesWithBody(nextHead, state.snake)) {
     return {
@@ -143,6 +140,7 @@ export const gameReducer = (state, action) => {
         mode: "ON",
         foodCoordinates: generateSnakeFood(),
         foodTimestamp: Date.now(),
+        bestScore: localStorage.getItem("Best-Score"),
       };
 
     case "PAUSE":
@@ -152,7 +150,11 @@ export const gameReducer = (state, action) => {
       return { ...state, mode: "ON" };
 
     case "GAME_OVER":
-      return { ...state, mode: "ENDED" };
+      return {
+        ...state,
+        bestScore: localStorage.getItem("Best-Score"),
+        mode: "ENDED",
+      };
 
     case "TICK":
       const newState = moveSnake(state);

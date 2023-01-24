@@ -35,15 +35,14 @@
 
 <div align="center" style="padding: 20px">
   
-<!-- ![Cerashop Demo](https://res.cloudinary.com/dqtzqp7ks/image/upload/v1674576717/github-images/tabSS_aialc4.jpg) -->
-  
-  <div style="display: flex; justify-content:space-between; margin-bottom: 20px">
+  <div style="display: flex; align-items:center; justify-content: center; gap:20px; margin-bottom: 20px">
+
   <img src="https://res.cloudinary.com/dqtzqp7ks/image/upload/v1674576717/github-images/tabSS_aialc4.jpg" height="300px"/>
 
   <img src="https://res.cloudinary.com/dqtzqp7ks/image/upload/v1674576718/github-images/mobileSS_iarsca.jpg" height="300px"/>
   </div>
 
-  <img src="https://res.cloudinary.com/dqtzqp7ks/image/upload/v1674576717/github-images/desktopSS_rstvxu.jpg" height="300px"/>
+  <img src="https://res.cloudinary.com/dqtzqp7ks/image/upload/v1674579993/github-images/desktopSS_mvg52l.png" height="300px" />
 </div>
 
 ## Getting Started
