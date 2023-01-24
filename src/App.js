@@ -2,7 +2,7 @@ import "./App.css";
 import {
   GameBoard,
   GameControls,
-  GameOverModal,
+  GameStatusModal,
   Header,
   RulesModal,
 } from "./components";
@@ -20,7 +20,9 @@ function App() {
       <Header setShowRulesModal={setShowRulesModal} />
       <GameBoard />
       <GameControls />
-      {(mode === "PAUSED" || mode === "ENDED") && <GameOverModal mode={mode} />}
+      {(mode === "PAUSED" || mode === "ENDED") && (
+        <GameStatusModal mode={mode} />
+      )}
       {showRulesModal && <RulesModal setShowRulesModal={setShowRulesModal} />}
     </div>
   );

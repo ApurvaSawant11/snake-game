@@ -1,4 +1,4 @@
-import "../gameOverModal/gameOverModal.css";
+import "../gameStatusModal/gameStatusModal.css";
 import { GiBeveledStar as Star } from "react-icons/gi";
 
 const RulesModal = ({ setShowRulesModal }) => {

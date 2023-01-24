@@ -1,7 +1,7 @@
 import { useGame } from "../../../context/GameContext";
-import "./gameOverModal.css";
+import "./gameStatusModal.css";
 
-const GameOverModal = ({ mode }) => {
+const GameStatusModal = ({ mode }) => {
   const { score, bestScore, dispatch } = useGame();
 
   const restartHandler = () => {
@@ -34,12 +34,12 @@ const GameOverModal = ({ mode }) => {
 
         {mode === "ENDED" && (
           <>
-            <h2 className="text-center p-2">Game Over</h2>
-            <div className="modal-body p-2 pb-1 flex-column-center">
+            <h2 className="text-center">Game Over</h2>
+            <div className="modal-body py-1 flex-column-center">
               <span>Score: {score}</span>
               <span>Best Score: {bestScore}</span>
             </div>
-            <div className="text-center p-1">
+            <div className="text-center">
               <button className="btn blue-btn" onClick={restartHandler}>
                 Restart
               </button>
@@ -51,4 +51,4 @@ const GameOverModal = ({ mode }) => {
   );
 };
 
-export { GameOverModal };
+export { GameStatusModal };
