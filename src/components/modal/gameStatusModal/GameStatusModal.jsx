@@ -41,7 +41,7 @@ const GameStatusModal = ({ mode }) => {
             </div>
             <div className="text-center">
               <button className="btn blue-btn" onClick={restartHandler}>
-                Restart
+                Play Again
               </button>
             </div>
           </>
